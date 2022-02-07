@@ -41,3 +41,10 @@ application I will take the aspects of each application that help and combine th
 into one application. The main interest in this specific project is born mostly from the chance in 
  making something practical for me that I know the people around me like my friends in school, friends doing full time
 work, my parents and myself can use every day.
+
+## User Stories
+
+- 'As a user, I want to be able to add a task to my todo list'
+- 'As a user, I want to be able to start and stop the pomodoro timer'
+- 'As a user, I want to be able to check off the tasks I complete'
+- 'As a user, I want to be able to make specific folders for my tasks'
