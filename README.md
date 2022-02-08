@@ -1,50 +1,48 @@
-# Alina's Personal Project: Pomodoro Task Organizer
+# Alina's Personal Project: Greenhouse Game
 
 ## What will the application do?
-The application I will be making for the personal project will be a Pomodoro timer application with an additional
-task organizer. The application will have the following features;
+The application that I will be making for the personal project is similar to the idea of a 'desk pet' or
+tamagotchi. Although instead of a pet, the user taking care of a pet it will be a plant within the Greenhouse game.
+The user game will consist of the following;
 
-- An editable pomodoro timer
 
-<p> 
-    The editable pomodoro allowing the timer 50 minutes of work and 10 minutes of break. The Pomodoro timer is a method 
-of studying that allows the user to take breaks at allotted time intervals that promote focus and comprehension.
-</p>
-
-- Folders with individual todo lists
+- Taking care of a seedling
 
 <p> 
-Each folder having an editable title that allows the user to add tasks to a todo list under
-a specific focus or idea. This will allow the user to create organization between tasks and break
-big chucks of work into manageable pieces.
+    The user will be given a seedling and have the choice of what type of plant they want to take care of and can give
+the plant a name. The user will then be able to water the plant to help it grow at reach the 'mature' stage.
 </p>
 
-- A collective todo list with all the tasks from all the folders
+- Sending off mature plants
+
+<p> 
+Once a plant reaches the mature state it is ready to leave the greenhouse into the real world! 
+the user will be able to send off the plant the 'garden'. 
+</p>
+
+- Visiting the Garden
 
 <p>
-the user will have the option of also having a 'master todo list' which will contain 
-all the todo tasks from all the folders the user has.
+After sending a plant to a garden the user will also be prompted if they would like to visit the garden, when at the
+visiting the garden the user can see how many of each type of plant has been sent to the garden.  
 </p>
 
 ## Who will use it?
-With Covid and the emergence of many individuals needing to switch their 
-schooling and work online this application will be used by people struggling to keep their 
-focus on track while at home. Meaning the application will have a large demographic of people
-who all struggle with focus while work on tasks over a long period of time.
+The demographic is similar to that of the tamagotchi wherein it is a game that appeals to people with a nurturing
+instinct, in this case the urge to care for something and be able to see its growth and development and will lead into
+seeing the development of the garden. Aside from people who enjoy nurture appeal games, parents can give this application to
+their children to teach them the reward of taking care of something.
 
 ## Why is this project of interest to you? 
-I personally wanted to make something that I would be able to use after this course which is where the idea of the
-pomodoro came from. I use many applications like this to keep track of my productivity but, they always 
-have something that I don't like about the application. Although I find that the interface that I use 
-has too many features which makes it more of a distraction than an aid in my productivity. So, this 
-application I will take the aspects of each application that help and combine the elements that I like
-into one application. The main interest in this specific project is born mostly from the chance in 
- making something practical for me that I know the people around me like my friends in school, friends doing full time
-work, my parents and myself can use every day.
+One of my hobbies outside of academics is gardening and, I also work at a florist shop. So a big part of my job
+is centered around the premise of the game. I raise plants and flowers until they are mature and can be sold to 
+customers can take them to their gardens. Although I notice some people find it difficult to take care of actual plants so,
+the digitalization will allow people to still have the satisfaction of taking care of plants despite not having a green thumb.
+
 
 ## User Stories
 
-- 'As a user, I want to be able to add a task to my todo list'
-- 'As a user, I want to be able to start and stop the pomodoro timer'
-- 'As a user, I want to be able to check off the tasks I complete'
-- 'As a user, I want to be able to make specific folders for my tasks'
+- 'As a user, I want to be able to make a new plant'
+- 'As a user, I want to be able to water the plant'
+- 'As a user, I want to be able to send plants to the garden'
+- 'As a user, I want to be able to go to see plants in the garden'
