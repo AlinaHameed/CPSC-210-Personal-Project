@@ -1,9 +1,9 @@
 package ui;
 
 import model.Plant;
+import model.Garden;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 // Greenhouse game application
@@ -171,7 +171,7 @@ public class GreenhouseApp {
         System.out.println(
                 "Your plant is too big to stay in the greenhouse! it's time visit the garden and drop off your plant!"
         );
-        seedling.sendToGarden(seedling);
+        Garden.sendToGarden(seedling);
         goGarden("");
     }
 

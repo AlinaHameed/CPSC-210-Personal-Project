@@ -119,6 +119,7 @@ class PlantTest {
         };
         assertTrue(testPlant.checkMaxGrowth(testPlant));
     }
+
 }
 
 
