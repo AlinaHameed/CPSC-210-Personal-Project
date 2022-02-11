@@ -37,11 +37,6 @@ public class Plant {
         }
     }
 
-    //EFFECTS: checks if plant has MAX GROWTH of sunshine and water
-    public boolean checkMaxGrowth(Plant seedling) {
-        return seedling.getWater() == MAX_GROWTH && seedling.getSunshine() == MAX_GROWTH;
-    }
-
     public String getGenus() {
         return genus;
     }

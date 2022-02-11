@@ -106,20 +106,6 @@ class PlantTest {
         testPlant.setGenus(selected);
         assertEquals("ficus", testPlant.getGenus());
     }
-
-    @Test
-    void testCheckMaxGrowth() {
-        assertFalse(testPlant.checkMaxGrowth(testPlant));
-
-        for (testPlant.getSunshine(); testPlant.getSunshine() < MAX_GROWTH; ) {
-            testPlant.sun(testPlant);};
-        assertFalse(testPlant.checkMaxGrowth(testPlant));
-        for (testPlant.getWater(); testPlant.getWater() < MAX_GROWTH; ) {
-            testPlant.watering(testPlant);
-        };
-        assertTrue(testPlant.checkMaxGrowth(testPlant));
-    }
-
 }
 
 
