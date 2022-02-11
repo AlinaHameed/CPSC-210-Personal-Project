@@ -20,19 +20,6 @@ public class Plant {
         this.gardenPlants = new LinkedList<Plant>();
     }
 
-    //REQUIRES: to be called on a plant
-    //MODIFIES: this
-    //EFFECTS: increments the watered by 1 when watered is < MAX_GROWTH else no incrementation
-    public void watering(Plant seedling) {
-        if (watered == MAX_GROWTH && sunshine == MAX_GROWTH) {
-            System.out.println("your plant is too big for the green house, let's send it to the gardens!");
-            gardenPlants.add(seedling);
-        } else if (watered == MAX_GROWTH && !(sunshine == MAX_GROWTH)) {
-            System.out.println("Try giving your plant some sun instead!");
-        } else {
-            ++watered;
-        }
-    }
 
     //REQUIRES: to be called on a plant with the max growth of sunshine and water
     //MODIFIES: this
@@ -41,19 +28,27 @@ public class Plant {
         gardenPlants.add(seedling);
     }
 
+    //REQUIRES: to be called on a plant
+    //MODIFIES: this
+    //EFFECTS: increments the watered by 1 when watered is < MAX_GROWTH else no incrementation
+    public void watering(Plant seedling) {
+        if (seedling.watered < MAX_GROWTH) {
+            ++seedling.watered;
+        }
+    }
 
     //REQUIRES: to be called on a plant
     //MODIFIES: this
     //EFFECTS: increments the sunshine by 1 when watered is < MAX_GROWTH else no incrementation
     public void sun(Plant seedling) {
-        if (watered == MAX_GROWTH && sunshine == MAX_GROWTH) {
-            System.out.println("your plant is too big for the green house, let's send it to the gardens!");
-            gardenPlants.add(seedling);
-        } else if (sunshine == MAX_GROWTH && !(watered == MAX_GROWTH)) {
-            System.out.println("Try giving your plant some water instead!");
-        } else {
+        if (seedling.sunshine < MAX_GROWTH) {
             ++sunshine;
         }
+    }
+
+    //EFFECTS: checks if plant has MAX GROWTH of sunshine and water
+    public boolean checkMaxGrowth(Plant seedling) {
+        return seedling.getWater() == MAX_GROWTH && seedling.getSunshine() == MAX_GROWTH;
     }
 
     public String getGenus() {

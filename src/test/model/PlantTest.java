@@ -3,13 +3,13 @@ package model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.LinkedList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlantTest {
     private Plant testPlant;
+    private LinkedList<Plant> testGarden;
     private static int MAX_GROWTH = 3;
 
 
@@ -58,7 +58,7 @@ class PlantTest {
 
     @Test
     void testGetWater() {
-        assertEquals(0,testPlant.getWater());
+        assertEquals(0, testPlant.getWater());
 
         testPlant.watering(testPlant);
         assertEquals(1, testPlant.getWater());
@@ -78,7 +78,7 @@ class PlantTest {
 
     @Test
     void testGetSunshine() {
-        assertEquals(0,testPlant.getSunshine());
+        assertEquals(0, testPlant.getSunshine());
         testPlant.sun(testPlant);
         assertEquals(1, testPlant.getSunshine());
         testPlant.sun(testPlant);
@@ -93,19 +93,33 @@ class PlantTest {
 
     }
 
-    @Test void testSetGenus() {
+    @Test
+    void testSetGenus() {
         String selected = "lily";
         testPlant.setGenus(selected);
-        assertEquals("lily",testPlant.getGenus());
+        assertEquals("lily", testPlant.getGenus());
 
         selected = "anthurium";
         testPlant.setGenus(selected);
-        assertEquals("anthurium",testPlant.getGenus());
+        assertEquals("anthurium", testPlant.getGenus());
 
         selected = "ficus";
         testPlant.setGenus(selected);
-        assertEquals("ficus",testPlant.getGenus());
+        assertEquals("ficus", testPlant.getGenus());
 
+    }
+
+    @Test
+    void testCheckMaxGrowth() {
+        assertFalse(testPlant.checkMaxGrowth(testPlant));
+
+        for (testPlant.getSunshine(); testPlant.getSunshine() < MAX_GROWTH; ) {
+            testPlant.sun(testPlant);
+        }
+        for (testPlant.getWater(); testPlant.getWater() < MAX_GROWTH; ) {
+            testPlant.watering(testPlant);
+        }
+        assertTrue(testPlant.checkMaxGrowth(testPlant));
     }
 }
 
