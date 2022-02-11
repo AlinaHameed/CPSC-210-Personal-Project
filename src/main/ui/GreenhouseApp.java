@@ -2,13 +2,14 @@ package ui;
 
 import model.Plant;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
 // Greenhouse game application
 public class GreenhouseApp {
     private Plant seedling;
-    private LinkedList<Plant> gardenPlants;
+    private ArrayList<String> gardenPlants;
     private Scanner input;
     private static int MAX_GROWTH = 3;
 
@@ -64,7 +65,7 @@ public class GreenhouseApp {
     // EFFECTS: initializes a plant without a genus and UBC garden
     private void init() {
         seedling = new Plant();
-        gardenPlants = new LinkedList<Plant>();
+        gardenPlants = new ArrayList<String>();
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
@@ -158,8 +159,8 @@ public class GreenhouseApp {
             selection = selection.toLowerCase();
         }
 
-        if (selection.equals("s")) {
-            System.out.println(gardenPlants.toArray());
+        if (selection.equals("p")) {
+            gardenPlants.toString();
         }
         if (selection.equals("s")) {
             gardenPlants.size();

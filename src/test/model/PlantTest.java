@@ -3,13 +3,13 @@ package model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlantTest {
     private Plant testPlant;
-    private LinkedList<Plant> testGarden;
+    private ArrayList<String> testGarden;
     private static int MAX_GROWTH = 3;
 
     @BeforeEach
@@ -113,11 +113,11 @@ class PlantTest {
         assertFalse(testPlant.checkMaxGrowth(testPlant));
 
         for (testPlant.getSunshine(); testPlant.getSunshine() < MAX_GROWTH; ) {
-            testPlant.sun(testPlant);
-        }
+            testPlant.sun(testPlant);};
+        assertFalse(testPlant.checkMaxGrowth(testPlant));
         for (testPlant.getWater(); testPlant.getWater() < MAX_GROWTH; ) {
             testPlant.watering(testPlant);
-        }
+        };
         assertTrue(testPlant.checkMaxGrowth(testPlant));
     }
 }

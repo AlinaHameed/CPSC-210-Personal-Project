@@ -9,8 +9,8 @@ The user game will consist of the following;
 - Taking care of a seedling
 
 <p> 
-    The user will be given a seedling and have the choice of what type of plant they want to take care of and can give
-the plant a name. The user will then be able to water the plant to help it grow at reach the 'mature' stage.
+    The user will be given a seedling and have the choice of what type of plant. The user will then be able to water
+the plant and give it sun to help it grow at reach the 'mature' stage.
 </p>
 
 - Sending off mature plants
@@ -44,5 +44,5 @@ the digitalization will allow people to still have the satisfaction of taking ca
 
 - 'As a user, I want to be able to make a new plant'
 - 'As a user, I want to be able to water the plant'
-- 'As a user, I want to be able to send mature plants to the garden'
-- 'As a user, I want to be able to go to see plants in the garden'
+- 'As a user, I want to be able to send the mature plant to the garden'
+- 'As a user, I want to be able to go to see plant I raised in the garden'
