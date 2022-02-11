@@ -12,7 +12,6 @@ class PlantTest {
     private LinkedList<Plant> testGarden;
     private static int MAX_GROWTH = 3;
 
-
     @BeforeEach
     void runBefore() {
         testPlant = new Plant();
