@@ -105,7 +105,6 @@ class PlantTest {
         selected = "ficus";
         testPlant.setGenus(selected);
         assertEquals("ficus", testPlant.getGenus());
-
     }
 
     @Test
