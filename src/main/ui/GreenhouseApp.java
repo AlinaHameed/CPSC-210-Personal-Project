@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 
 // Greenhouse game application
+// general layout of the ui is structured around pieces of the TellerApplication IU given in the
+// project edX page
 public class GreenhouseApp {
     private Plant seedling;
     private Garden myGarden;

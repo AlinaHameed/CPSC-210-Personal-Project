@@ -23,8 +23,8 @@ the user will be able to send off the plant the 'garden'.
 - Visiting the Garden
 
 <p>
-After sending a plant to a garden the user will also be prompted if they would like to visit the garden, when at the
-visiting the garden the user can see how many of each type of plant has been sent to the garden.  
+After sending a plant to a garden the user will be able to see it in the garden
+along with the genus of plant and the total number of plants they sent.
 </p>
 
 ## Who will use it?
@@ -44,5 +44,8 @@ the digitalization will allow people to still have the satisfaction of taking ca
 
 - 'As a user, I want to be able to make a new plant'
 - 'As a user, I want to be able to water the plant'
-- 'As a user, I want to be able to send the fully grown plant to the garden'
+- 'As a user, I want to be able to give the plant sunshine'
+
 - 'As a user, I want to be able to go to see plant I raised in the garden'
+  ( the case of adding an arbitrary amount of X(Plants a designed class) to Y(Garden another designed class))
+

@@ -1,10 +1,10 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.List;
 
+// Represents a garden which will hold all cases of Plants that have been successfully risen by the user
 public class Garden {
-    private ArrayList<Plant> gardenPlants;   //list of plant genus that have been sent to garden
+    private ArrayList<Plant> gardenPlants;   //list of fullgrown Plants that have been sent to the garden
 
     //EFFECTS: makes a garden with no plants in it
     public Garden() {
