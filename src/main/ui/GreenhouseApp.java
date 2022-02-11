@@ -6,14 +6,16 @@ import model.Garden;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 // Greenhouse game application
 public class GreenhouseApp {
     private Plant seedling;
+    private Garden myGarden;
     private ArrayList<String> gardenPlants;
     private Scanner input;
     private static int MAX_GROWTH = 3;
 
-    // EFFECTS: runs the teller application
+    // EFFECTS: runs the greenhouse game application
     public GreenhouseApp() {
         runGreenhouse();
     }
@@ -54,7 +56,7 @@ public class GreenhouseApp {
             }
             sendNewPlantToGarden(seedling);
         } else if (command.equals("garden")) {
-            goGarden("");
+            goGarden();
         } else {
             System.out.println("Selection not valid please try again!");
         }
@@ -64,8 +66,7 @@ public class GreenhouseApp {
     // MODIFIES: this
     // EFFECTS: initializes a plant without a genus and UBC garden
     private void init() {
-        seedling = new Plant();
-        gardenPlants = new ArrayList<String>();
+        myGarden = new Garden();
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
@@ -81,6 +82,7 @@ public class GreenhouseApp {
     // MODIFIES: this
     // EFFECTS: make a plant with the selected genus
     private void makePlant() {
+        seedling = new Plant();
         System.out.print("\nWould you like to grow a lily, ficus or anthurium?");
         selectGenus();
         System.out.println("good choice!");
@@ -105,18 +107,18 @@ public class GreenhouseApp {
 
         if (selection.equals("l")) {
             seedling.setGenus("lily");
-        }
-        if (selection.equals("f")) {
+        } else if (selection.equals("f")) {
             seedling.setGenus("ficus");
         } else {
             seedling.setGenus("anthurium");
         }
     }
 
+    //EFFECTS: gives the option menu on how one may interact and care for the plant
     private void takeCareOfPlantOptions() {
         String selection = "";  // force entry into loop
 
-        while (!(selection.equals("w") || selection.equals("s"))) {
+        while (!(selection.equals("w") || selection.equals("s") || selection.equals("b"))) {
             System.out.println("\nSelect an action");
             System.out.println("\n\tw -> give your plant a drink of water!");
             System.out.println("\ts -> help your plant photosynthesize with some sunshine!");
@@ -126,6 +128,7 @@ public class GreenhouseApp {
         }
     }
 
+    //EFFECTS: based on the input from takeCareOfPlantOptions() will act out this on the plant
     private void takeCareOfPlantActions(String selection) {
         if (selection.equals("w") && seedling.getWater() < MAX_GROWTH) {
             seedling.watering(seedling);
@@ -148,7 +151,7 @@ public class GreenhouseApp {
 
     // MODIFIES: this
     // EFFECTS: prompts user to choose what they want to do in the garden
-    private void goGarden(String command) {
+    private void goGarden() {
         String selection = "";  // force entry into loop
 
         while (!(selection.equals("p") || selection.equals("s"))) {
@@ -160,10 +163,12 @@ public class GreenhouseApp {
         }
 
         if (selection.equals("p")) {
-            gardenPlants.toString();
+            for (int i = 0; i < myGarden.getNumPlants(); i++) {
+                System.out.println(myGarden.getIndexPlant(i).getGenus());
+            }
         }
         if (selection.equals("s")) {
-            gardenPlants.size();
+            System.out.println(myGarden.getNumPlants());
         }
     }
 
@@ -171,8 +176,8 @@ public class GreenhouseApp {
         System.out.println(
                 "Your plant is too big to stay in the greenhouse! it's time visit the garden and drop off your plant!"
         );
-        Garden.sendToGarden(seedling);
-        goGarden("");
+        myGarden.sendToGarden(seedling);
+
     }
 
 }

@@ -80,6 +80,7 @@ class PlantTest {
         assertEquals(0, testPlant.getSunshine());
         testPlant.sun(testPlant);
         assertEquals(1, testPlant.getSunshine());
+
         testPlant.sun(testPlant);
         assertEquals(2, testPlant.getSunshine());
 

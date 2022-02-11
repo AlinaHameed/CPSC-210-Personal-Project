@@ -16,13 +16,16 @@ public class GardenTest {
         testPlant = new Plant();
     }
 
-/*
+
     @Test
-    void testSendToGarden() {
+    void testSentToGarden() {
         testPlant.setGenus("lily");
-        assertEquals(testSendToGarden(testPlant),);
+        testGarden.sendToGarden(testPlant);
+        assertEquals("lily", testGarden.getIndexPlant(0).getGenus());
+        assertEquals(1, testGarden.getNumPlants());
 
-*/
 
+                ;
     }
+}
 
