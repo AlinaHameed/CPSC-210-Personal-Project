@@ -11,18 +11,18 @@ public class Garden {
         this.gardenPlants = new ArrayList<>();
     }
 
-    //REQUIRES: to be called on a plant with the max growth of sunshine and water
-    //MODIFIES: this
-    //EFFECTS: sends plants with max growth of sunshine and water to the garden
-    public void sendToGarden(Plant seedling) {
-        gardenPlants.add(seedling);
-    }
-
     public int getNumPlants() {
         return gardenPlants.size();
     }
 
     public Plant getIndexPlant(int index) {
         return gardenPlants.get(index);
+    }
+
+    //REQUIRES: to be called on a plant with the max growth of sunshine and water
+    //MODIFIES: this
+    //EFFECTS: sends plants with max growth of sunshine and water to the garden
+    public void sendToGarden(Plant seedling) {
+        gardenPlants.add(seedling);
     }
 }

@@ -128,6 +128,7 @@ public class GreenhouseApp {
         }
     }
 
+    //MODIFIES: this
     //EFFECTS: based on the input from takeCareOfPlantOptions() will act out this on the plant
     private void takeCareOfPlantActions(String selection) {
         if (selection.equals("w") && seedling.getWater() < MAX_GROWTH) {
@@ -174,12 +175,13 @@ public class GreenhouseApp {
 
     private void sendNewPlantToGarden(Plant seedling) {
         System.out.println(
-                "Your plant is too big to stay in the greenhouse! it's time visit the garden and drop off your plant!"
+                "Your plant is too big to stay in the greenhouse! you have go visit it in the garden if you would like!"
         );
+        System.out.println("\tseedling -> to start raising a new seedling");
+        System.out.println("\tgarden   -> go to the Botanical garden");
+        System.out.println("\tquit     -> to leave the game");
         myGarden.sendToGarden(seedling);
-
     }
-
 }
 
 

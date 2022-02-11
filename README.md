@@ -44,5 +44,5 @@ the digitalization will allow people to still have the satisfaction of taking ca
 
 - 'As a user, I want to be able to make a new plant'
 - 'As a user, I want to be able to water the plant'
-- 'As a user, I want to be able to send the mature plant to the garden'
+- 'As a user, I want to be able to send the fully grown plant to the garden'
 - 'As a user, I want to be able to go to see plant I raised in the garden'
