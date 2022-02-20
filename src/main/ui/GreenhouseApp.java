@@ -42,7 +42,7 @@ public class GreenhouseApp {
             }
         }
 
-        System.out.println("\nGoodbye for now, Thank you for Playing!");
+        System.out.println("\nGoodbye for now, thank you for playing!");
     }
 
     // MODIFIES: this
@@ -89,7 +89,7 @@ public class GreenhouseApp {
         selectGenus();
         System.out.println("good choice!");
 
-        System.out.println("\nNow that you have a plant, it's time to rake care of it");
+        System.out.println("\nNow that you have a plant, it's time to take care of it");
 
         System.out.print("Let's water the plant to make it grow!");
         takeCareOfPlantOptions();

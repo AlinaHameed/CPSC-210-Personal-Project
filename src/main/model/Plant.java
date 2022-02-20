@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 //represents a plant with a genus name, how much water and sunshine the plant has received
 // from the respectively watered and sunshine and, a constant of MAX_GROWTH to decern how much water
-// and sunshine the plant needs until full grown.
+// and sunshine the plant needs until fully grown.
 public class Plant {
     private String genus;                    // the genus (type) of plant
     private int watered;                     // how many times a plant has been watered

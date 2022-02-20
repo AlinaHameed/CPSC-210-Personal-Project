@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 // Represents a garden which will hold all cases of Plants that have been successfully risen by the user
 public class Garden {
-    private ArrayList<Plant> gardenPlants;   //list of fullgrown Plants that have been sent to the garden
+    private ArrayList<Plant> gardenPlants;   //list of fully grown Plants that have been sent to the garden
 
     //EFFECTS: makes a garden with no plants in it
     public Garden() {
