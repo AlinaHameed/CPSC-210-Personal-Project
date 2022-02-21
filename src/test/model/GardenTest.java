@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GardenTest {
@@ -13,7 +15,7 @@ public class GardenTest {
 
     @BeforeEach
     void runBefore() {
-        testGarden = new Garden();
+        testGarden = new Garden("Alina's garden");
         testPlant = new Plant();
         testPlant2 = new Plant();
     }
@@ -32,6 +34,11 @@ public class GardenTest {
         assertEquals("ficus", testGarden.getIndexPlant(1).getGenus());
         assertEquals(2, testGarden.getNumPlants());
 
+    }
+
+    @Test
+    void testGetName() {
+        assertEquals("Alina's garden", testGarden.getName());
     }
 }
 

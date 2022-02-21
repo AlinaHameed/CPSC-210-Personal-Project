@@ -6,7 +6,6 @@ import model.Plant;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,7 +24,7 @@ class JsonWriterTest extends JsonTest {
     @Test
     void testWriterInvalidFile() {
         try {
-            Garden garden = new Garden();
+            Garden garden = new Garden("My garden");
             JsonWriter writer = new JsonWriter("./data/my\0illegal:fileName.json");
             writer.open();
             fail("IOException was expected");
@@ -37,7 +36,7 @@ class JsonWriterTest extends JsonTest {
     @Test
     void testWriterEmptyGarden() {
         try {
-            Garden garden = new Garden();
+            Garden garden = new Garden("My garden");
             JsonWriter writer = new JsonWriter("./data/testWriterEmptyGarden.json");
             writer.open();
             writer.write(garden);
@@ -45,6 +44,7 @@ class JsonWriterTest extends JsonTest {
 
             JsonReader reader = new JsonReader("./data/testWriterEmptyGarden.json");
             garden = reader.read();
+            assertEquals("My garden",garden.getName());
             assertEquals(0, garden.getNumPlants());
         } catch (IOException e) {
             fail("Exception should not have been thrown");
@@ -54,9 +54,9 @@ class JsonWriterTest extends JsonTest {
     @Test
     void testWriterGeneralGarden() {
         try {
-            Garden garden = new Garden();
-            garden.addPlant(testPlant);
-            garden.addPlant(testPlant2);
+            Garden garden = new Garden("My general garden");
+            garden.addPlantToGarden(testPlant);
+            garden.addPlantToGarden(testPlant2);
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralGarden.json");
             writer.open();
             writer.write(garden);
@@ -64,9 +64,11 @@ class JsonWriterTest extends JsonTest {
 
             JsonReader reader = new JsonReader("./data/testWriterGeneralGarden.json");
             garden = reader.read();
-            ArrayList<Plant> plants = garden.getPlants();
-            checkPlant("lily", garden.getIndexPlant(0));
-            checkPlant("ficus", garden.getIndexPlant(1));
+            assertEquals("My general garden",garden.getName());
+            Garden plants = garden.getPlants();
+            assertEquals(2,garden.getNumPlants());
+            checkPlant("lily", plants.getIndexPlant(0));
+            checkPlant("ficus", plants.getIndexPlant(1));
 
         } catch (IOException e) {
             fail("Exception should not have been thrown");

@@ -9,10 +9,12 @@ import java.util.ArrayList;
 // Represents a garden which will hold all cases of Plants that have been successfully risen by the user
 public class Garden implements Writable {
     private ArrayList<Plant> gardenPlants;   //list of fully grown Plants that have been sent to the garden
+    private String name;                     // name of the garden
 
     //EFFECTS: makes a garden with no plants in it
-    public Garden() {
+    public Garden(String name) {
         this.gardenPlants = new ArrayList<>();
+        this.name = name;
     }
 
     public int getNumPlants() {
@@ -32,13 +34,19 @@ public class Garden implements Writable {
 
     //MODIFIES: this
     // EFFECTS: adds plants to this garden
-    public void addPlant(Plant plant) {
+    public void addPlantToGarden(Plant plant) {
         gardenPlants.add(plant);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        json.put("gardenPlants",gardenPlantsToJson());
+        json.put("name",name);
+        json.put("gardenPlants", gardenPlantsToJson());
         return json;
     }
 
@@ -52,8 +60,12 @@ public class Garden implements Writable {
         return jsonArray;
     }
 
-    public ArrayList<Plant> getPlants() {
-        //stub
-        return null;
+    public Garden getPlants() {
+        Garden collectionOfPlants = new Garden("Alina's garden");
+
+        for (int i = 0; i < gardenPlants.size(); i++) {
+            collectionOfPlants.addPlantToGarden(gardenPlants.get(i));
+        }
+        return collectionOfPlants;
     }
 }

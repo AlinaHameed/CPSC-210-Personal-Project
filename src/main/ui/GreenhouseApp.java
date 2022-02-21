@@ -26,7 +26,7 @@ public class GreenhouseApp {
     // EFFECTS: runs the greenhouse game application
     public GreenhouseApp() throws FileNotFoundException {
         input = new Scanner(System.in);
-        myGarden = new Garden();
+        myGarden = new Garden("Alina's garden");
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
         runGreenhouse();
@@ -37,11 +37,10 @@ public class GreenhouseApp {
     private void runGreenhouse() {
         boolean keepGoing = true;
         String command = null;
-
-        init();
-        displayMenu();
+        input = new Scanner(System.in);
 
         while (keepGoing) {
+            displayMenu();
             command = input.next();
             command = command.toLowerCase();
 
@@ -100,9 +99,9 @@ public class GreenhouseApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: initializes a plant without a genus and UBC garden
+    // EFFECTS: initializes a plant without a genus and garden
     private void init() {
-        myGarden = new Garden();
+        myGarden = new Garden("Alina's garden");
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }

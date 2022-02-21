@@ -1,11 +1,11 @@
 {"gardenPlants": [
     {
         "genus": "lily",
-        "sunshine": 0,
-        "watered": 0
+        "sunshine": 3,
+        "watered": 3
     },
     {
-        "genus": "ficus",
+        "genus": "anthurium",
         "sunshine": 3,
         "watered": 3
     }

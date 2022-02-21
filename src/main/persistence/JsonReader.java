@@ -41,7 +41,8 @@ public class JsonReader {
 
     // EFFECTS: parses garden from JSON object and returns it
     private Garden parseGarden(JSONObject jsonObject) {
-        Garden garden = new Garden();
+        String name = jsonObject.getString("name");
+        Garden garden = new Garden(name);
         addPlants(garden, jsonObject);
         return garden;
     }
@@ -62,7 +63,7 @@ public class JsonReader {
         String genus = jsonObject.getString("genus");
         Plant plant = new Plant();
         plant.setGenus(genus);
-        garden.addPlant(plant);
+        garden.addPlantToGarden(plant);
     }
 }
 
