@@ -1,5 +1,8 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 // Represents a garden which will hold all cases of Plants that have been successfully risen by the user
@@ -24,5 +27,27 @@ public class Garden {
     //EFFECTS: sends plants with max growth of sunshine and water to the garden
     public void sendToGarden(Plant seedling) {
         gardenPlants.add(seedling);
+    }
+
+    //MODIFIES: this
+    // EFFECTS: adds plants to this garden
+    public void addPlant(Plant plant) {
+        gardenPlants.add(plant);
+    }
+
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("gardenPlants",gardenPlantsToJson());
+        return json;
+    }
+
+    private JSONArray gardenPlantsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Plant p : gardenPlants) {
+            jsonArray.put(p.toJson());
+        }
+
+        return jsonArray;
     }
 }

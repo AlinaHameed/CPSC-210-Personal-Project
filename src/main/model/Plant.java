@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 //represents a plant with a genus name, how much water and sunshine the plant has received
@@ -11,14 +13,12 @@ public class Plant {
     private int sunshine;                    // how much sun the plant has received
     private static int MAX_GROWTH = 3;       // the value that watered and
                                              // sunshine must both be to make mature enough to be sent to garden
-    private ArrayList<String> gardenPlants;  // the collection of mature plants
 
     // EFFECTS: the name is set to the name given; the plant type is set to type
     public Plant() {
         this.genus = "";
         this.watered = 0;
         this.sunshine = 0;
-        this.gardenPlants = new ArrayList<String>();
     }
 
     //REQUIRES: to be called on a plant
@@ -53,5 +53,13 @@ public class Plant {
 
     public int getSunshine() {
         return this.sunshine;
+    }
+
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("genus",genus);
+        json.put("watered",watered);
+        json.put("sunshine",sunshine);
+        return json;
     }
 }

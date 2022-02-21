@@ -2,8 +2,12 @@ package ui;
 
 import model.Plant;
 import model.Garden;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
-import java.util.ArrayList;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -11,14 +15,20 @@ import java.util.Scanner;
 // general layout of the ui is structured around pieces of the TellerApplication IU given in the
 // project edX page
 public class GreenhouseApp {
+    private static final String JSON_STORE = "./data/garden.json";
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
     private Plant seedling;
     private Garden myGarden;
-    private ArrayList<String> gardenPlants;
     private Scanner input;
     private static int MAX_GROWTH = 3;
 
     // EFFECTS: runs the greenhouse game application
-    public GreenhouseApp() {
+    public GreenhouseApp() throws FileNotFoundException {
+        input = new Scanner(System.in);
+        myGarden = new Garden();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runGreenhouse();
     }
 
@@ -59,10 +69,34 @@ public class GreenhouseApp {
             sendNewPlantToGarden(seedling);
         } else if (command.equals("garden")) {
             goGarden();
+        } else if (command.equals("save")) {
+            saveGarden();
+        } else if (command.equals("load")) {
+            loadGarden();
         } else {
             System.out.println("Selection not valid please try again!");
         }
 
+    }
+
+    private void loadGarden() {
+        try {
+            myGarden = jsonReader.read();
+            System.out.println("Loaded from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
+
+    private void saveGarden() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(myGarden);
+            jsonWriter.close();
+            System.out.println("Saved to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
     }
 
     // MODIFIES: this
@@ -78,6 +112,8 @@ public class GreenhouseApp {
         System.out.println("\nSelect by type one of the following:");
         System.out.println("\tseedling -> to start raising a new seedling");
         System.out.println("\tgarden   -> go to the Botanical garden");
+        System.out.println("\tsave     -> save your current garden to file");
+        System.out.println("\tload     -> load previously saved garden from file");
         System.out.println("\tquit     -> to leave the game");
     }
 
@@ -176,9 +212,7 @@ public class GreenhouseApp {
     }
 
     private void sendNewPlantToGarden(Plant seedling) {
-        System.out.println(
-                "Your plant is too big to stay in the greenhouse! you have go visit it in the garden if you would like!"
-        );
+        System.out.println("Your plant is too big to stay in the greenhouse! You have to go to the garden to see it!");
         System.out.println("\tseedling -> to start raising a new seedling");
         System.out.println("\tgarden   -> go to the Botanical garden");
         System.out.println("\tquit     -> to leave the game");

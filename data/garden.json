@@ -1,0 +1,12 @@
+{"gardenPlants": [
+    {
+        "genus": "lily",
+        "sunshine": 0,
+        "watered": 0
+    },
+    {
+        "genus": "ficus",
+        "sunshine": 3,
+        "watered": 3
+    }
+]}
