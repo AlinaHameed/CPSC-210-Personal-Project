@@ -2,11 +2,12 @@ package model;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import persistence.Writable;
 
 import java.util.ArrayList;
 
 // Represents a garden which will hold all cases of Plants that have been successfully risen by the user
-public class Garden {
+public class Garden implements Writable {
     private ArrayList<Plant> gardenPlants;   //list of fully grown Plants that have been sent to the garden
 
     //EFFECTS: makes a garden with no plants in it
@@ -49,5 +50,10 @@ public class Garden {
         }
 
         return jsonArray;
+    }
+
+    public ArrayList<Plant> getPlants() {
+        //stub
+        return null;
     }
 }
