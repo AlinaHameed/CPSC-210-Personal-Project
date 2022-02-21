@@ -55,6 +55,7 @@ public class Plant implements Writable {
         return this.sunshine;
     }
 
+    @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("genus",genus);

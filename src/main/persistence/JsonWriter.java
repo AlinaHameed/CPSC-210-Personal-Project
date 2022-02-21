@@ -5,7 +5,8 @@ import org.json.JSONObject;
 
 import java.io.*;
 
-// Represents a writer that writes a JSON representation of garden to file
+// Represents a writer that writes a JSON representation of garden to file. Using the edX JsonSerializationDemo as a
+// base to use understand and template JsonWriter
 public class JsonWriter {
     private static final int TAB = 4;
     private PrintWriter writer;

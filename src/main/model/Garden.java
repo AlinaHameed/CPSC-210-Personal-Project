@@ -17,10 +17,13 @@ public class Garden implements Writable {
         this.name = name;
     }
 
+    //EFFECTS: gets the number of plants within garden
     public int getNumPlants() {
         return gardenPlants.size();
     }
 
+    //REQUIRES: to get called on a garden with atleast one plant
+    //EFFECTS: gets the plant at a given index from the garden else nothing
     public Plant getIndexPlant(int index) {
         return gardenPlants.get(index);
     }
@@ -33,11 +36,12 @@ public class Garden implements Writable {
     }
 
     //MODIFIES: this
-    // EFFECTS: adds plants to this garden
+    // EFFECTS: adds plant to this garden
     public void addPlantToGarden(Plant plant) {
         gardenPlants.add(plant);
     }
 
+    //EFFECTS: returns the garden's name
     public String getName() {
         return name;
     }
@@ -50,6 +54,7 @@ public class Garden implements Writable {
         return json;
     }
 
+    //EFFECTS: returns plant in this garden as a JSON array
     private JSONArray gardenPlantsToJson() {
         JSONArray jsonArray = new JSONArray();
 
@@ -60,6 +65,7 @@ public class Garden implements Writable {
         return jsonArray;
     }
 
+    //EFFECTS: returns a new garden with a copy of the plants from the garden given
     public Garden getPlants() {
         Garden collectionOfPlants = new Garden("Alina's garden");
 

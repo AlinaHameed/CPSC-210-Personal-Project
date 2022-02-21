@@ -7,7 +7,6 @@ import persistence.JsonWriter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -78,6 +77,8 @@ public class GreenhouseApp {
 
     }
 
+    //MODIFIES: this
+    //EFFECTS: loads a garden that is on file
     private void loadGarden() {
         try {
             myGarden = jsonReader.read();
@@ -87,6 +88,7 @@ public class GreenhouseApp {
         }
     }
 
+    //EFFECTS: saves the current garden to file
     private void saveGarden() {
         try {
             jsonWriter.open();
@@ -96,14 +98,6 @@ public class GreenhouseApp {
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }
-    }
-
-    // MODIFIES: this
-    // EFFECTS: initializes a plant without a genus and garden
-    private void init() {
-        myGarden = new Garden("Alina's garden");
-        input = new Scanner(System.in);
-        input.useDelimiter("\n");
     }
 
     // EFFECTS: displays menu of options to user

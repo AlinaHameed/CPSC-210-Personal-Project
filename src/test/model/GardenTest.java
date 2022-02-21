@@ -21,6 +21,28 @@ public class GardenTest {
     }
 
     @Test
+    void testConstructor() {
+        assertEquals(0,testGarden.getNumPlants());
+        assertEquals("Alina's garden",testGarden.getName());
+    }
+
+    @Test
+    void testGetNumPlants() {
+        assertEquals(0,testGarden.getNumPlants());
+        testGarden.addPlantToGarden(testPlant);
+        assertEquals(1,testGarden.getNumPlants());
+    }
+
+    @Test
+    void testGetIndexPlant() {
+        testGarden.addPlantToGarden(testPlant);
+        assertEquals(testPlant,testGarden.getIndexPlant(0));
+        testGarden.addPlantToGarden(testPlant2);
+        assertEquals(testPlant,testGarden.getIndexPlant(0));
+        assertEquals(testPlant2,testGarden.getIndexPlant(1));
+    }
+
+    @Test
     void testSentToGarden() {
         testPlant.setGenus("lily");
         testGarden.sendToGarden(testPlant);
@@ -34,6 +56,15 @@ public class GardenTest {
         assertEquals("ficus", testGarden.getIndexPlant(1).getGenus());
         assertEquals(2, testGarden.getNumPlants());
 
+    }
+
+    @Test
+    void testAddingPlantToGarden() {
+        testGarden.addPlantToGarden(testPlant);
+        assertEquals(testPlant,testGarden.getIndexPlant(0));
+        testGarden.addPlantToGarden(testPlant2);
+        assertEquals(testPlant,testGarden.getIndexPlant(0));
+        assertEquals(testPlant2,testGarden.getIndexPlant(1));
     }
 
     @Test

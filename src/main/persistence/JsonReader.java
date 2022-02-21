@@ -11,7 +11,8 @@ import java.util.stream.Stream;
 import model.Plant;
 import org.json.*;
 
-// Represents a reader that reads garden from JSON data stored in file
+// Represents a reader that reads garden from JSON data stored in file used the edX JsonSerializationDemo as a base to
+// use understand and template JsonReader
 public class JsonReader {
     private String source;
 
