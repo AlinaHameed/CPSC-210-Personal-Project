@@ -12,7 +12,7 @@ import model.Plant;
 import org.json.*;
 
 // Represents a reader that reads garden from JSON data stored in file used the edX JsonSerializationDemo as a base to
-// use understand and template JsonReader
+// use understand and template JsonReader https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 public class JsonReader {
     private String source;
 

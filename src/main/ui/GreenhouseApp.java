@@ -12,7 +12,9 @@ import java.util.Scanner;
 
 // Greenhouse game application
 // general layout of the ui is structured around pieces of the TellerApplication IU given in the
-// project edX page
+// project edX page https://github.students.cs.ubc.ca/CPSC210/TellerApp
+// the implementation of the saving to file was structured loosely around the given workshop application on
+//https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 public class GreenhouseApp {
     private static final String JSON_STORE = "./data/garden.json";
     private JsonWriter jsonWriter;
@@ -64,7 +66,6 @@ public class GreenhouseApp {
             while (seedling.getSunshine() < MAX_GROWTH) {
                 takeCareOfPlantOptions();
             }
-            sendNewPlantToGarden(seedling);
         } else if (command.equals("garden")) {
             goGarden();
         } else if (command.equals("save")) {
@@ -157,6 +158,7 @@ public class GreenhouseApp {
             selection = selection.toLowerCase();
             takeCareOfPlantActions(selection);
         }
+        System.out.println("Your plant is too big to stay in the greenhouse! You have to go to the garden to see it!");
     }
 
     //MODIFIES: this
@@ -202,14 +204,6 @@ public class GreenhouseApp {
         if (selection.equals("s")) {
             System.out.println(myGarden.getNumPlants());
         }
-    }
-
-    private void sendNewPlantToGarden(Plant seedling) {
-        System.out.println("Your plant is too big to stay in the greenhouse! You have to go to the garden to see it!");
-        System.out.println("\tseedling -> to start raising a new seedling");
-        System.out.println("\tgarden   -> go to the Botanical garden");
-        System.out.println("\tquit     -> to leave the game");
-        myGarden.sendToGarden(seedling);
     }
 }
 
