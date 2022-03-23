@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 public class Main {
     public static void main(String[] args) {
         try {
+            new StartScreen();
             new GreenhouseApp();
         } catch (FileNotFoundException e) {
             System.out.println("Sorry unable to run application, file not found");
