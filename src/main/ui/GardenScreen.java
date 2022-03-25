@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 import model.Garden;
 
+
 public class GardenScreen implements ActionListener {
 
     private JFrame gardenWindow;
@@ -67,7 +68,7 @@ public class GardenScreen implements ActionListener {
         buttonPanel = new JPanel();
         buttonPanel.setBounds((gardenWindow.getWidth() / 2) - 150, 400, 300, 100);
 
-        genusButton = new JButton("which plants are in your garden?");
+        genusButton = new JButton("plants sent to the garden this game?");
         genusButton.addActionListener(this);
         numberButton = new JButton("how many plants are in your garden?");
         numberButton.addActionListener(this);
@@ -85,6 +86,7 @@ public class GardenScreen implements ActionListener {
     //MODIFIES: this
     //EFFECTS: sets the boolean values to reflect which genus are in the garden
     private void genusInGarden() {
+
         for (int i = 0; i < this.currentGarden.getNumPlants(); i++) {
             if (this.currentGarden.getIndexPlant(i).getGenus() == "lily") {
                 hasLily = true;
@@ -94,29 +96,30 @@ public class GardenScreen implements ActionListener {
                 hasFicus = true;
             }
         }
-
         setGardenTextToGenus();
     }
+
+
 
     //MODIFIES: this
     //EFFECTS: sets the text to display which genus in the current garden
     private void setGardenTextToGenus() {
         if (hasFicus && hasLily && hasAnthurium) {
-            textLabel.setText("Your garden has plants with the genus type: lily, ficus and anthurium");
+            textLabel.setText("You've sent plants with the genus type: lily, ficus and anthurium");
         } else if (hasFicus && hasLily) {
-            textLabel.setText("Your garden has plants with the genus type: lily and ficus");
+            textLabel.setText("You've sent plants with the genus type: lily and ficus");
         } else if (hasLily && hasAnthurium) {
-            textLabel.setText("Your garden has plants with the genus type: lily and anthurium");
+            textLabel.setText("You've plants with the genus type: lily and anthurium");
         } else if (hasAnthurium && hasFicus) {
-            textLabel.setText("Your garden has plants with the genus type: ficus and anthurium");
+            textLabel.setText("You've sent plants with the genus type: ficus and anthurium");
         } else if (hasFicus) {
-            textLabel.setText("Your garden has plants with the genus type: ficus");
+            textLabel.setText("You've sent plants with the genus type: ficus");
         } else if (hasLily) {
-            textLabel.setText("Your garden has plants with the genus type: lily");
+            textLabel.setText("You've sent plants with the genus type: lily");
         } else if (hasAnthurium) {
-            textLabel.setText("Your garden has plants with the genus type: anthurium");
+            textLabel.setText("You've sent plants with the genus type: anthurium");
         } else {
-            textLabel.setText("there are no plants in the garden!");
+            textLabel.setText("none!");
         }
     }
 
@@ -128,7 +131,7 @@ public class GardenScreen implements ActionListener {
         if (e.getSource() == genusButton) {
             genusInGarden();
         } else if (e.getSource() == numberButton) {
-            textLabel.setText("You currently have " + currentGarden.getNumPlants() + " in your garden!");
+            textLabel.setText("You currently have a total of " + currentGarden.getNumPlants() + " in your garden!");
         } else if (e.getSource() == returnButton) {
             this.gardenWindow.setVisible(false);
             new MainMenuGUI().createGUI(this.currentGarden);

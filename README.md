@@ -47,7 +47,7 @@ the digitalization will allow people to still have the satisfaction of taking ca
 - 'As a user, I want to be able to give the plant sunshine'
 - 'As a user, I want to be able to go to see plant I raised in the garden'
   ( the case of adding an arbitrary amount of X(Plants a designed class) to Y(Garden another designed class))
--'As a user, I want ot be able to save the current state of the garden to file'
+- 'As a user, I want ot be able to save the current state of the garden to file'
 - 'As a user, I want to be able to have the option in the main display screen to 
 load the garden from file'
 

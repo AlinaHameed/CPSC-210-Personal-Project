@@ -60,7 +60,7 @@ public class MainMenuGUI implements ActionListener {
         mainMenuText.setForeground(Color.black);
 
         mainMenuPanel = new JPanel();
-        mainMenuPanel.setBounds((window.getWidth() / 2) - 300, 100, 600, 500);
+        mainMenuPanel.setBounds((window.getWidth() / 2) - 350, 100, 700, 500);
         mainMenuPanel.add(mainMenuText);
 
         this.window.add(mainMenuPanel);

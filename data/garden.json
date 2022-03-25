@@ -1,20 +1,8 @@
 {
-    "gardenPlants": [
-        {
-            "genus": "ficus",
-            "sunshine": 0,
-            "watered": 0
-        },
-        {
-            "genus": "anthurium",
-            "sunshine": 3,
-            "watered": 3
-        },
-        {
-            "genus": "ficus",
-            "sunshine": 3,
-            "watered": 3
-        }
-    ],
+    "gardenPlants": [{
+        "genus": "lily",
+        "sunshine": 3,
+        "watered": 3
+    }],
     "name": "User Garden"
 }

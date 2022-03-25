@@ -70,6 +70,7 @@ public class StartScreen implements ActionListener {
         } catch (IOException e) {
             titleNameLabel.setText("something went wrong!");
         }
+
         this.icon = new ImageIcon(image);
         imgLabel = new JLabel(icon);
 
