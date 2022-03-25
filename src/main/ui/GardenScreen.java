@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import model.Garden;
-import model.Plant;
 
 public class GardenScreen implements ActionListener {
 
@@ -19,17 +18,35 @@ public class GardenScreen implements ActionListener {
     private JButton returnButton;
     private Font regFont = new Font("Times New Roman", Font.PLAIN, 20);
     private Garden currentGarden;
+    private boolean hasLily;
+    private boolean hasAnthurium;
+    private boolean hasFicus;
 
+    //MODIFIES: this
+    //EFFECTS: runs the garden
     public void garden(Garden userGarden) {
-        this.currentGarden = userGarden;
+        hasAnthurium = false;
+        hasLily = false;
+        hasFicus = false;
+        currentGarden = userGarden;
         setUpGardenWindow();
         setUpMainButtons();
+
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+        int x = (screenSize.width - gardenWindow.getWidth()) / 2;
+        int y = (screenSize.height - gardenWindow.getHeight()) / 2;
+        gardenWindow.setLocation(x, y);
+        gardenWindow.setVisible(true);
+
         this.gardenWindow.setVisible(true);
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates the garden's main window
     public void setUpGardenWindow() {
         this.gardenWindow = new JFrame("Garden");
-        gardenWindow.setSize(800, 600);
+        gardenWindow.setSize(725, 625);
         gardenWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gardenWindow.setLayout(null);
 
@@ -38,16 +55,17 @@ public class GardenScreen implements ActionListener {
         textLabel.setForeground(Color.black);
 
         mainPanel = new JPanel();
-        mainPanel.setBounds(100, 100, 600, 500);
+        mainPanel.setBounds((gardenWindow.getWidth() / 2) - 300, 100, 600, 500);
         mainPanel.add(textLabel);
 
         this.gardenWindow.add(mainPanel);
     }
 
+    //EFFECTS: creates the buttons and button panel that is added to main window
     public void setUpMainButtons() {
 
         buttonPanel = new JPanel();
-        buttonPanel.setBounds(250,400,300,100);
+        buttonPanel.setBounds((gardenWindow.getWidth() / 2) - 150, 400, 300, 100);
 
         genusButton = new JButton("which plants are in your garden?");
         genusButton.addActionListener(this);
@@ -64,14 +82,53 @@ public class GardenScreen implements ActionListener {
 
     }
 
+    //MODIFIES: this
+    //EFFECTS: sets the boolean values to reflect which genus are in the garden
+    private void genusInGarden() {
+        for (int i = 0; i < this.currentGarden.getNumPlants(); i++) {
+            if (this.currentGarden.getIndexPlant(i).getGenus() == "lily") {
+                hasLily = true;
+            } else if (this.currentGarden.getIndexPlant(i).getGenus() == "anthurium") {
+                hasAnthurium = true;
+            } else if (this.currentGarden.getIndexPlant(i).getGenus() == "ficus") {
+                hasFicus = true;
+            }
+        }
 
+        setGardenTextToGenus();
+    }
+
+    //MODIFIES: this
+    //EFFECTS: sets the text to display which genus in the current garden
+    private void setGardenTextToGenus() {
+        if (hasFicus && hasLily && hasAnthurium) {
+            textLabel.setText("Your garden has plants with the genus type: lily, ficus and anthurium");
+        } else if (hasFicus && hasLily) {
+            textLabel.setText("Your garden has plants with the genus type: lily and ficus");
+        } else if (hasLily && hasAnthurium) {
+            textLabel.setText("Your garden has plants with the genus type: lily and anthurium");
+        } else if (hasAnthurium && hasFicus) {
+            textLabel.setText("Your garden has plants with the genus type: ficus and anthurium");
+        } else if (hasFicus) {
+            textLabel.setText("Your garden has plants with the genus type: ficus");
+        } else if (hasLily) {
+            textLabel.setText("Your garden has plants with the genus type: lily");
+        } else if (hasAnthurium) {
+            textLabel.setText("Your garden has plants with the genus type: anthurium");
+        } else {
+            textLabel.setText("there are no plants in the garden!");
+        }
+    }
+
+    //MODIFIES: this
+    //EFFECTS: handles the actions of the buttons and changes the text accordingly
     @Override
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == genusButton) {
-            textLabel.setText("These are the current plant genus types in your garden!");
+            genusInGarden();
         } else if (e.getSource() == numberButton) {
-            textLabel.setText("You currently have " + this.currentGarden.getNumPlants() + " in your garden!");
+            textLabel.setText("You currently have " + currentGarden.getNumPlants() + " in your garden!");
         } else if (e.getSource() == returnButton) {
             this.gardenWindow.setVisible(false);
             new MainMenuGUI().createGUI(this.currentGarden);

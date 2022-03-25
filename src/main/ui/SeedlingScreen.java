@@ -2,8 +2,6 @@ package ui;
 
 import model.Garden;
 import model.Plant;
-import persistence.JsonReader;
-import persistence.JsonWriter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,18 +23,30 @@ public class SeedlingScreen implements ActionListener {
     private Garden myGarden;
 
 
+    //MODIFIES: this
+    //EFFECTS: creates the seedling genus selection screen
     public void seedling(Garden myGarden) {
         this.plant = new Plant();
         this.myGarden = myGarden;
         setUpSeedlingWindow();
         setUpMainButtons();
+
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+        int x = (screenSize.width - seedlingWindow.getWidth()) / 2;
+        int y = (screenSize.height - seedlingWindow.getHeight()) / 2;
+        seedlingWindow.setLocation(x, y);
+        seedlingWindow.setVisible(true);
+
         this.seedlingWindow.setVisible(true);
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates the main window for the seedling genus choice menu
     public void setUpSeedlingWindow() {
 
         this.seedlingWindow = new JFrame("Seedling menu");
-        seedlingWindow.setSize(800, 600);
+        seedlingWindow.setSize(725, 625);
         seedlingWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         seedlingWindow.setLayout(null);
 
@@ -45,7 +55,7 @@ public class SeedlingScreen implements ActionListener {
         textLabel.setForeground(Color.black);
 
         mainPanel = new JPanel();
-        mainPanel.setBounds(100, 100, 600, 500);
+        mainPanel.setBounds((seedlingWindow.getWidth() / 2) - 300, 100, 600, 500);
         mainPanel.add(textLabel);
 
         this.seedlingWindow.add(mainPanel);
@@ -53,10 +63,12 @@ public class SeedlingScreen implements ActionListener {
     }
 
 
+    //MODIFIES: this
+    //EFFECTS: sets up the main buttons and button panel to be placed on the main window
     public void setUpMainButtons() {
 
         buttonPanel = new JPanel();
-        buttonPanel.setBounds(250,400,300,100);
+        buttonPanel.setBounds((seedlingWindow.getWidth() / 2) - 150,400,300,100);
 
         lilyButton = new JButton("lily");
         lilyButton.addActionListener(this);
@@ -72,6 +84,8 @@ public class SeedlingScreen implements ActionListener {
         this.seedlingWindow.add(buttonPanel);
     }
 
+    //MODIFIES: this
+    //EFFECTS: handles the action of the plant genus button selection being chosen
     @Override
     public void actionPerformed(ActionEvent e) {
 

@@ -32,16 +32,26 @@ public class MainMenuGUI implements ActionListener {
     public void createGUI(Garden myGarden) {
         setUpMenuWindow();
         setUpMainButtons();
+
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+        int x = (screenSize.width - window.getWidth()) / 2;
+        int y = (screenSize.height - window.getHeight()) / 2;
+        window.setLocation(x, y);
+        window.setVisible(true);
+
         this.myGarden = myGarden;
         this.jsonWriter = new JsonWriter(JSON_STORE);
         this.jsonReader = new JsonReader(JSON_STORE);
         window.setVisible(true);
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates the main window for this section of selctions
     public void setUpMenuWindow() {
 
         this.window = new JFrame("Floral Tamagotchi");
-        window.setSize(800, 600);
+        window.setSize(725, 625);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setLayout(null);
 
@@ -50,18 +60,18 @@ public class MainMenuGUI implements ActionListener {
         mainMenuText.setForeground(Color.black);
 
         mainMenuPanel = new JPanel();
-        mainMenuPanel.setBounds(100, 100, 600, 500);
+        mainMenuPanel.setBounds((window.getWidth() / 2) - 300, 100, 600, 500);
         mainMenuPanel.add(mainMenuText);
 
         this.window.add(mainMenuPanel);
     }
 
     //EFFECTS: sets up the main menu buttons with action listeners onto a panel which is added to the
-    //
+    // window
     public void setUpMainButtons() {
 
         mainMenuButtons = new JPanel();
-        mainMenuButtons.setBounds(250, 400, 300, 100);
+        mainMenuButtons.setBounds((window.getWidth() / 3), 400, (window.getWidth() / 3), 100);
 
         seedlingButton = new JButton("seedling");
         seedlingButton.addActionListener(this);
@@ -103,6 +113,7 @@ public class MainMenuGUI implements ActionListener {
         }
     }
 
+    //EFFECTS: handles actions and send to according screen
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == seedlingButton) {

@@ -25,19 +25,32 @@ public class PlantCareMenu implements ActionListener {
     private Plant plant;
     private Garden myGarden;
 
+    //MODIFIES: this
+    //EFFECTS: runs the plant care menu
     public void careMenu(Plant plant, Garden myGarden) {
         this.plant = plant;
         this.myGarden = myGarden;
         setUpCareWindow();
         setUpMainButtons();
+
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+        int x = (screenSize.width - careWindow.getWidth()) / 2;
+        int y = (screenSize.height - careWindow.getHeight()) / 2;
+        careWindow.setLocation(x, y);
+        careWindow.setVisible(true);
+
         this.careWindow.setVisible(true);
 
     }
 
+
+    //MODIFIES: this
+    //EFFECTS: creates the main window for care
     public void setUpCareWindow() {
 
         this.careWindow = new JFrame("Plant care");
-        careWindow.setSize(800, 600);
+        careWindow.setSize(725, 625);
         careWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         careWindow.setLayout(null);
 
@@ -46,16 +59,18 @@ public class PlantCareMenu implements ActionListener {
         textLabel.setForeground(Color.black);
 
         mainPanel = new JPanel();
-        mainPanel.setBounds(100, 100, 600, 500);
+        mainPanel.setBounds(((careWindow.getWidth()) / 2) - 300, 100, 600, 500);
         mainPanel.add(textLabel);
 
         this.careWindow.add(mainPanel);
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates buttons and button panels to be added to the main window
     public void setUpMainButtons() {
 
         buttonPanel = new JPanel();
-        buttonPanel.setBounds(250, 400, 300, 100);
+        buttonPanel.setBounds((careWindow.getWidth() / 2) - 150, 400, 300, 100);
 
         sunButton = new JButton("sun");
         sunButton.addActionListener(this);
@@ -68,6 +83,8 @@ public class PlantCareMenu implements ActionListener {
         this.careWindow.add(buttonPanel);
     }
 
+    //MODIFIES: this
+    //EFFECTS: increments the plant's sun to the MAX GROWTH
     private void sunAction() {
         if (plant.getSunshine() < MAX_GROWTH) {
             plant.sun(plant);
@@ -82,6 +99,8 @@ public class PlantCareMenu implements ActionListener {
         }
     }
 
+    //MODIFIES: this
+    //EFFECTS: increments the plants water to MAX GROWTH
     private void waterAction() {
         if (plant.getWater() < MAX_GROWTH) {
             plant.watering(plant);
@@ -96,6 +115,7 @@ public class PlantCareMenu implements ActionListener {
         }
     }
 
+    //EFFECTS: handles the action events of the sun and water buttons
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == sunButton) {
