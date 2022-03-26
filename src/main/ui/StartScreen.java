@@ -14,6 +14,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+
+// the background image from the website : https://www.inprnt.com/gallery/tsuokostudio/rainy-greenhouse/
+// all credit for the image goes to this artist !
 public class StartScreen implements ActionListener {
 
     private JFrame startWindow;

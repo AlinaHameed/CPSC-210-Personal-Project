@@ -23,6 +23,7 @@ public class MainMenuGUI implements ActionListener {
     private JButton saveButton;
     private JButton loadButton;
 
+
     private static final String JSON_STORE = "./data/garden.json";
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
@@ -55,13 +56,17 @@ public class MainMenuGUI implements ActionListener {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setLayout(null);
 
+        mainMenuPanel = new JPanel();
+        mainMenuPanel.setSize(725,625);
+        mainMenuPanel.setBounds((window.getWidth() / 2) - 362, 100, 725, 625);
+
         mainMenuText = new JLabel("Select one of the following actions!");
         mainMenuText.setFont(regFont);
         mainMenuText.setForeground(Color.black);
-
-        mainMenuPanel = new JPanel();
-        mainMenuPanel.setBounds((window.getWidth() / 2) - 350, 100, 700, 500);
         mainMenuPanel.add(mainMenuText);
+
+        JPanel testPanel = new JPanel();
+        mainMenuPanel.add(testPanel);
 
         this.window.setResizable(false);
         this.window.add(mainMenuPanel);
@@ -73,6 +78,7 @@ public class MainMenuGUI implements ActionListener {
 
         mainMenuButtons = new JPanel();
         mainMenuButtons.setBounds((window.getWidth() / 3), 400, (window.getWidth() / 3), 100);
+
 
         seedlingButton = new JButton("seedling");
         seedlingButton.addActionListener(this);
