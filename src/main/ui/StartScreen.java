@@ -58,7 +58,7 @@ public class StartScreen implements ActionListener {
 
         welcomePanel = new JPanel();
         welcomePanel.setSize(800,600);
-        welcomePanel.setBounds(-90, 0, 900, 600);
+        welcomePanel.setBounds(-90, -2, 900, 600);
 
         File file = new File("./resources/GreenhouseImage.png");
         try {
@@ -77,6 +77,7 @@ public class StartScreen implements ActionListener {
         welcomePanel.add(imgLabel);
 
         this.startWindow.add(welcomePanel);
+        this.startWindow.setResizable(false);
     }
 
 

@@ -63,6 +63,7 @@ public class MainMenuGUI implements ActionListener {
         mainMenuPanel.setBounds((window.getWidth() / 2) - 350, 100, 700, 500);
         mainMenuPanel.add(mainMenuText);
 
+        this.window.setResizable(false);
         this.window.add(mainMenuPanel);
     }
 

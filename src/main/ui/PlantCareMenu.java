@@ -63,6 +63,7 @@ public class PlantCareMenu implements ActionListener {
         mainPanel.setBounds(((careWindow.getWidth()) / 2) - 300, 100, 600, 500);
         mainPanel.add(textLabel);
 
+        this.careWindow.setResizable(false);
         this.careWindow.add(mainPanel);
     }
 

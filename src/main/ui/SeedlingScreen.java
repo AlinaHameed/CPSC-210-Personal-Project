@@ -58,6 +58,7 @@ public class SeedlingScreen implements ActionListener {
         mainPanel.setBounds((seedlingWindow.getWidth() / 2) - 300, 100, 600, 500);
         mainPanel.add(textLabel);
 
+        this.seedlingWindow.setResizable(false);
         this.seedlingWindow.add(mainPanel);
 
     }

@@ -59,6 +59,7 @@ public class GardenScreen implements ActionListener {
         mainPanel.setBounds((gardenWindow.getWidth() / 2) - 300, 100, 600, 500);
         mainPanel.add(textLabel);
 
+        this.gardenWindow.setResizable(false);
         this.gardenWindow.add(mainPanel);
     }
 
@@ -86,13 +87,14 @@ public class GardenScreen implements ActionListener {
     //MODIFIES: this
     //EFFECTS: sets the boolean values to reflect which genus are in the garden
     private void genusInGarden() {
-
-        for (int i = 0; i < this.currentGarden.getNumPlants(); i++) {
-            if (this.currentGarden.getIndexPlant(i).getGenus() == "lily") {
+        for (int i = 0; i < currentGarden.getNumPlants(); i++) {
+            if (currentGarden.getIndexPlant(i).getGenus().equals("lily")) {
                 hasLily = true;
-            } else if (this.currentGarden.getIndexPlant(i).getGenus() == "anthurium") {
+            }
+            if (currentGarden.getIndexPlant(i).getGenus().equals("anthurium")) {
                 hasAnthurium = true;
-            } else if (this.currentGarden.getIndexPlant(i).getGenus() == "ficus") {
+            }
+            if (currentGarden.getIndexPlant(i).getGenus().equals("ficus")) {
                 hasFicus = true;
             }
         }
@@ -100,10 +102,10 @@ public class GardenScreen implements ActionListener {
     }
 
 
-
     //MODIFIES: this
     //EFFECTS: sets the text to display which genus in the current garden
     private void setGardenTextToGenus() {
+
         if (hasFicus && hasLily && hasAnthurium) {
             textLabel.setText("You've sent plants with the genus type: lily, ficus and anthurium");
         } else if (hasFicus && hasLily) {
@@ -135,8 +137,6 @@ public class GardenScreen implements ActionListener {
         } else if (e.getSource() == returnButton) {
             this.gardenWindow.setVisible(false);
             new MainMenuGUI().createGUI(this.currentGarden);
-
-
         }
     }
 }
