@@ -19,6 +19,11 @@ public class Garden implements Writable {
 
     //EFFECTS: gets the number of plants within garden
     public int getNumPlants() {
+        return gardenPlants.size();
+    }
+
+    //EFFECTS: gets the number of plants within garden for total plants
+    public int getNumPlantsForSize() {
         EventLog.getInstance().logEvent(new Event("Garden size checked to be " + gardenPlants.size()));
         return gardenPlants.size();
     }

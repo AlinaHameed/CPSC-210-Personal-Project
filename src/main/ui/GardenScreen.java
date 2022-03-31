@@ -105,7 +105,7 @@ public class GardenScreen implements ActionListener {
     //MODIFIES: this
     //EFFECTS: sets the text to display which genus in the current garden
     private void setGardenTextToGenus() {
-        currentGarden.logGenus(hasFicus,hasLily,hasAnthurium);
+        currentGarden.logGenus(hasFicus, hasLily, hasAnthurium);
         if (hasFicus && hasLily && hasAnthurium) {
             textLabel.setText("You've sent plants with the genus type: lily, ficus and anthurium");
         } else if (hasFicus && hasLily) {
@@ -133,7 +133,9 @@ public class GardenScreen implements ActionListener {
         if (e.getSource() == genusButton) {
             genusInGarden();
         } else if (e.getSource() == numberButton) {
-            textLabel.setText("You currently have a total of " + currentGarden.getNumPlants() + " in your garden!");
+            textLabel.setText(
+                    "You currently have a total of " + currentGarden.getNumPlantsForSize() + " in your garden!"
+            );
         } else if (e.getSource() == returnButton) {
             this.gardenWindow.setVisible(false);
             new MainMenuGUI().createGUI(this.currentGarden);
