@@ -71,5 +71,12 @@ public class GardenTest {
     void testGetName() {
         assertEquals("Alina's garden", testGarden.getName());
     }
+
+    @Test
+    void testLogGenus() {
+
+    }
+
 }
+
 
