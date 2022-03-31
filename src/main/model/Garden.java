@@ -19,6 +19,7 @@ public class Garden implements Writable {
 
     //EFFECTS: gets the number of plants within garden
     public int getNumPlants() {
+        EventLog.getInstance().logEvent(new Event("Garden size checked to be " + gardenPlants.size()));
         return gardenPlants.size();
     }
 
@@ -38,6 +39,7 @@ public class Garden implements Writable {
     //MODIFIES: this
     // EFFECTS: adds plant to this garden
     public void addPlantToGarden(Plant plant) {
+        EventLog.getInstance().logEvent(new Event("Plant with genus " + plant.getGenus() + " added to garden"));
         gardenPlants.add(plant);
     }
 
@@ -49,7 +51,7 @@ public class Garden implements Writable {
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        json.put("name",name);
+        json.put("name", name);
         json.put("gardenPlants", gardenPlantsToJson());
         return json;
     }
@@ -73,5 +75,26 @@ public class Garden implements Writable {
             collectionOfPlants.addPlantToGarden(gardenPlants.get(i));
         }
         return collectionOfPlants;
+    }
+
+    //EFFECTS: logs the event of which plants are in the garden
+    public void logGenus(Boolean hasFicus, Boolean hasLily, Boolean hasAnthurium) {
+        if (hasFicus && hasLily && hasAnthurium) {
+            EventLog.getInstance().logEvent(new Event("garden checked to contain type: lily, ficus and anthurium"));
+        } else if (hasFicus && hasLily) {
+            EventLog.getInstance().logEvent(new Event("garden checked to contain type: lily and ficus"));
+        } else if (hasLily && hasAnthurium) {
+            EventLog.getInstance().logEvent(new Event("garden checked to contain type: lily and anthurium"));
+        } else if (hasAnthurium && hasFicus) {
+            EventLog.getInstance().logEvent(new Event("garden checked to contain type: ficus and anthurium"));
+        } else if (hasFicus) {
+            EventLog.getInstance().logEvent(new Event("garden checked to contain type: ficus"));
+        } else if (hasLily) {
+            EventLog.getInstance().logEvent(new Event("garden checked to contain type: lily"));
+        } else if (hasAnthurium) {
+            EventLog.getInstance().logEvent(new Event("garden checked to contain type: anthurium"));
+        } else {
+            EventLog.getInstance().logEvent(new Event("garden check to be empty"));
+        }
     }
 }

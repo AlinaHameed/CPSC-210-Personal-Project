@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+//represents the main menu screen of the greenhouse game
 public class MainMenuGUI implements ActionListener {
 
     private JFrame window;

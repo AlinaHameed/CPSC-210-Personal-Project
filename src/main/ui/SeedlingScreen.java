@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//represents the window for picking the genus of the plant you choose to raise
 public class SeedlingScreen implements ActionListener {
 
     private JFrame seedlingWindow;

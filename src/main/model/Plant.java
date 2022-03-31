@@ -19,6 +19,7 @@ public class Plant implements Writable {
         this.genus = "";
         this.watered = 0;
         this.sunshine = 0;
+        EventLog.getInstance().logEvent(new Event("Created a new plant"));
     }
 
     //REQUIRES: to be called on a plant
@@ -27,6 +28,8 @@ public class Plant implements Writable {
     public void watering(Plant seedling) {
         if (seedling.watered < MAX_GROWTH) {
             ++seedling.watered;
+            EventLog.getInstance().logEvent(
+                    new Event("Plant incremented water by 1 with the current sun: " + seedling.getWater()));
         }
     }
 
@@ -36,6 +39,8 @@ public class Plant implements Writable {
     public void sun(Plant seedling) {
         if (seedling.sunshine < MAX_GROWTH) {
             ++sunshine;
+            EventLog.getInstance().logEvent(
+                    new Event("Plant incremented sun by 1 with the current sun: " + seedling.getSunshine()));
         }
     }
 
@@ -44,6 +49,7 @@ public class Plant implements Writable {
     }
 
     public void setGenus(String userGenus) {
+        EventLog.getInstance().logEvent(new Event("Created plant genus has been set to " + userGenus));
         genus = userGenus;
     }
 

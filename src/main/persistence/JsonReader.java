@@ -1,5 +1,7 @@
 package persistence;
 
+import model.Event;
+import model.EventLog;
 import model.Garden;
 
 import java.io.IOException;
@@ -24,6 +26,7 @@ public class JsonReader {
     // EFFECTS: reads garden from file and returns it;
     // throws IOException if an error occurs reading data from file
     public Garden read() throws IOException {
+        EventLog.getInstance().logEvent(new Event("garden loaded from file"));
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
         return parseGarden(jsonObject);

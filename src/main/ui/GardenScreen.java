@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 import model.Garden;
 
-
+//represents the window within the garden element of application
 public class GardenScreen implements ActionListener {
 
     private JFrame gardenWindow;
@@ -105,7 +105,7 @@ public class GardenScreen implements ActionListener {
     //MODIFIES: this
     //EFFECTS: sets the text to display which genus in the current garden
     private void setGardenTextToGenus() {
-
+        currentGarden.logGenus(hasFicus,hasLily,hasAnthurium);
         if (hasFicus && hasLily && hasAnthurium) {
             textLabel.setText("You've sent plants with the genus type: lily, ficus and anthurium");
         } else if (hasFicus && hasLily) {
