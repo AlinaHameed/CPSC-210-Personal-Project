@@ -46,6 +46,14 @@ public class GardenTest {
     }
 
     @Test
+    void testGetNumPlantsForSize(){
+        assertEquals(0, testGarden.getNumPlants());
+        testGarden.addPlantToGarden(testPlant);
+        assertEquals(1, testGarden.getNumPlants());
+    }
+
+
+    @Test
     void testGetIndexPlant() {
         testGarden.addPlantToGarden(testPlant);
         assertEquals(testPlant, testGarden.getIndexPlant(0));
