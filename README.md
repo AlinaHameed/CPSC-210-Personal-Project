@@ -51,3 +51,20 @@ the digitalization will allow people to still have the satisfaction of taking ca
 - 'As a user, I want to be able to have the option in the main display screen to 
 load the garden from file'
 
+## Phase 4: Task 3
+
+Refactoring
+
+<p>
+I found that during phase four that I had to create multiple new
+methods as a result of not making methods effectively the first time.
+If I had more time I would refactor the way I have dealt getting the genus of the plants in the garden
+as of right now it is mainly 'hard coded'. Instead of using the boolean method I would make a new method in the 
+Garden class the checks if the list of 'gardenPlants' contains a genus. If it does 
+tack the type on to the base phrase "Your garden currently has genus types:". I would also refactor the way I have set
+the windows as I currently have different windows but, instead I could have created a single window
+and passed the window along and each screen would be represented with a panel and 'changing screens' could be done by
+setting the panel's visibility to false rather than the entire window.
+</p>
+
+
