@@ -67,4 +67,50 @@ and passed the window along and each screen would be represented with a panel an
 setting the panel's visibility to false rather than the entire window.
 </p>
 
+##Logging Example
+
+<p>
+The following is the expected log print out to the console for the event of
+a lily being made, incremented to the maximum sun and water, added to the garden and
+checked within the garden to have the size of one (the added lily), with the genus present in the 
+garden as genus lily
+
+ EVENT LOG BEGINNING 
+
+Fri Apr 01 15:05:50 PDT 2022
+Created a new plant
+
+Fri Apr 01 15:05:51 PDT 2022
+Created plant genus has been set to lily
+
+Fri Apr 01 15:05:52 PDT 2022
+Plant incremented sun by 1 with the current sun: 1
+
+Fri Apr 01 15:05:52 PDT 2022
+Plant incremented sun by 1 with the current sun: 2
+
+Fri Apr 01 15:05:52 PDT 2022
+Plant incremented sun by 1 with the current sun: 3
+
+Fri Apr 01 15:05:53 PDT 2022
+Plant incremented water by 1 with the current sun: 1
+
+Fri Apr 01 15:05:53 PDT 2022
+Plant incremented water by 1 with the current sun: 2
+
+Fri Apr 01 15:05:53 PDT 2022
+Plant incremented water by 1 with the current sun: 3
+
+Fri Apr 01 15:05:53 PDT 2022
+Plant with genus lily added to garden
+
+Fri Apr 01 15:05:56 PDT 2022
+garden checked to contain type: lily
+
+Fri Apr 01 15:05:56 PDT 2022
+Garden size checked to be 1
+
+EVENT LOG FINISHED
+</p>
+
 

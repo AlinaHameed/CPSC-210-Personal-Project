@@ -1,8 +1,4 @@
 {
-    "gardenPlants": [{
-        "genus": "lily",
-        "sunshine": 3,
-        "watered": 3
-    }],
+    "gardenPlants": [],
     "name": "User Garden"
 }
